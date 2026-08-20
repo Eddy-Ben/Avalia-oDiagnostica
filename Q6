@@ -48,3 +48,6 @@ console.log("Avaliacoes regulares: " + qtdRegulares);
 console.log("Avaliacoes positivas: " + qtdPositivas);
 console.log("Maior avaliacao: " + maior);
 console.log("Menor avaliacao: " + menor);
+
+//cole no navegador o link a baixo e relaxe
+// https://www.youtube.com/watch?v=fJtREbMrZ9Y&list=PLDUEjoBVMbh-IYBjwY8gnHS91Xa679Z2I&index=13
