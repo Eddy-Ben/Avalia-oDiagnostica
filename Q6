@@ -1,0 +1,50 @@
+// QUESTAO 6 - Analise de avaliacoes de um aplicativo
+
+const avaliacoes = [5, 8, 7, 10, 6, 9, 4];
+
+var soma = 0;
+var qtdNegativas = 0;
+var qtdRegulares = 0;
+var qtdPositivas = 0;
+var maior = avaliacoes[0];
+var menor = avaliacoes[0];
+
+for (let i = 0; i < avaliacoes.length; i++) {
+  var nota = avaliacoes[i];
+  var classificacao = "";
+
+  if (nota < 5) {
+    classificacao = "Avaliacao negativa";
+    qtdNegativas++;
+  } else if (nota >= 5 && nota <= 7) {
+    classificacao = "Avaliacao regular";
+    qtdRegulares++;
+  } else {
+    classificacao = "Avaliacao positiva";
+    qtdPositivas++;
+  }
+
+  console.log("Posicao: " + i + " | Nota: " + nota + " | Classificacao: " + classificacao);
+
+  soma = soma + nota;
+
+  if (nota > maior) {
+    maior = nota;
+  }
+  if (nota < menor) {
+    menor = nota;
+  }
+}
+
+var media = soma / avaliacoes.length;
+
+console.log("");
+console.log("Resumo das avaliacoes");
+console.log("Quantidade de avaliacoes: " + avaliacoes.length);
+console.log("Soma das avaliacoes: " + soma);
+console.log("Media das avaliacoes: " + media.toFixed(2));
+console.log("Avaliacoes negativas: " + qtdNegativas);
+console.log("Avaliacoes regulares: " + qtdRegulares);
+console.log("Avaliacoes positivas: " + qtdPositivas);
+console.log("Maior avaliacao: " + maior);
+console.log("Menor avaliacao: " + menor);
