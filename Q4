@@ -1,0 +1,56 @@
+// QUESTAO 4 - Controle de consumo de internet
+
+// funcao tradicional
+function calcularInternetRestante(totalContratado, totalUtilizado) {
+  var restante = totalContratado - totalUtilizado;
+
+  // regra adicional: se usou mais do que tinha, restante e zero
+  if (restante < 0) {
+    restante = 0;
+  }
+
+  return restante;
+}
+
+// arrow function
+const classificarConsumo = (totalContratado, restante) => {
+  var percentual = (restante / totalContratado) * 100;
+
+  if (restante == 0) {
+    return "Plano esgotado";
+  } else if (percentual > 50) {
+    return "Consumo normal";
+  } else if (percentual >= 20 && percentual <= 50) {
+    return "Atencao ao consumo";
+  } else {
+    return "Limite proximo do fim";
+  }
+}
+
+function mostrarResultado(contratado, utilizado) {
+  var restante = calcularInternetRestante(contratado, utilizado);
+  var percentual = (restante / contratado) * 100;
+  var situacao = classificarConsumo(contratado, restante);
+
+  console.log("Internet contratada: " + contratado + " GB");
+  console.log("Internet utilizada: " + utilizado + " GB");
+  console.log("Internet restante: " + restante + " GB");
+  console.log("Percentual restante: " + percentual.toFixed(0) + "%");
+  console.log("Situacao: " + situacao);
+  console.log("-----------------------------");
+}
+
+// exemplo do enunciado
+mostrarResultado(20, 12);
+
+// consumo normal (mais de 50% restando)
+mostrarResultado(50, 5);
+
+// limite proximo do fim (menos de 20%)
+mostrarResultado(10, 9);
+
+// plano esgotado
+mostrarResultado(10, 10);
+
+// usou mais do que tinha (restante fica 0)
+mostrarResultado(10, 15);
