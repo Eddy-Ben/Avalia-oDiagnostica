@@ -1,0 +1,37 @@
+// QUESTAO 2 - Situacao academica
+
+function situacaoAluno(nome, nota1, nota2, frequencia) {
+  var media = (nota1 + nota2) / 2;
+  var situacao = "";
+
+  // frequencia tem que ser checada ANTES da media
+  if (frequencia < 75) {
+    situacao = "Reprovado por frequencia";
+  } else {
+    if (media >= 7) {
+      situacao = "Aprovado";
+    } else if (media >= 5 && media <= 6.9) {
+      situacao = "Recuperacao";
+    } else {
+      situacao = "Reprovado por nota";
+    }
+  }
+
+  console.log("Aluno: " + nome);
+  console.log("Media: " + media.toFixed(2));
+  console.log("Frequencia: " + frequencia + "%");
+  console.log("Situacao: " + situacao);
+  console.log("---------------------------");
+}
+
+// exemplo dado no enunciado
+situacaoAluno("Mariana Alves", 8, 7, 82);
+
+// media 9 mas frequencia 60% -> tem que dar reprovado por frequencia mesmo assim
+situacaoAluno("Joao Pedro", 9, 9, 60);
+
+// media entre 5 e 6.9 -> recuperacao
+situacaoAluno("Carla Souza", 5, 6, 90);
+
+// media menor que 5 -> reprovado por nota
+situacaoAluno("Lucas Lima", 3, 4, 95);
