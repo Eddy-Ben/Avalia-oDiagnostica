@@ -1,0 +1,41 @@
+// QUESTAO 1 - Calculadora de compra
+
+function calcularCompra(nome, preco, qtd, pagamento) {
+  var valorBruto = preco * qtd;
+  var desconto = 0;
+
+  // desconto por valor
+  if (valorBruto >= 200) {
+    desconto = desconto + (valorBruto * 0.10);
+  }
+
+  // desconto por pix (em cima do valor bruto, acumula com o outro)
+  if (pagamento == "pix") {
+    desconto = desconto + (valorBruto * 0.05);
+  }
+
+  var valorFinal = valorBruto - desconto;
+
+  console.log("-----------------------------");
+  console.log("Produto: " + nome);
+  console.log("Preco unitario: R$ " + preco.toFixed(2));
+  console.log("Quantidade: " + qtd);
+  console.log("Forma de pagamento: " + pagamento);
+  console.log("Valor bruto: R$ " + valorBruto.toFixed(2));
+  console.log("Desconto: R$ " + desconto.toFixed(2));
+  console.log("Valor final: R$ " + valorFinal.toFixed(2));
+}
+
+// testes - todas as regras
+
+// compra abaixo de 200, sem desconto, dinheiro
+calcularCompra("Mouse", 50, 2, "dinheiro");
+
+// compra >= 200, ganha 10%, cartao
+calcularCompra("Teclado Mecanico", 250, 1, "cartao");
+
+// compra abaixo de 200 mas pix, ganha so os 5% do pix
+calcularCompra("Fone de ouvido", 90, 2, "pix");
+
+// compra >= 200 e pix, acumula os dois descontos (10% + 5%)
+calcularCompra("Monitor", 300, 1, "pix");
