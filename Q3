@@ -1,0 +1,22 @@
+// QUESTAO 3 - Simulacao do consumo de bateria
+
+let nivelBateria = 100;
+const consumoPorCiclo = 15;
+
+while (nivelBateria > 0) {
+  nivelBateria = nivelBateria - consumoPorCiclo;
+
+  if (nivelBateria < 0) {
+    nivelBateria = 0; // nao deixa ficar negativo
+  }
+
+  if (nivelBateria == 0) {
+    console.log("Nivel da bateria: " + nivelBateria + "%");
+    console.log("Bateria descarregada.");
+  } else if (nivelBateria <= 20) {
+    console.log("Nivel da bateria: " + nivelBateria + "%");
+    console.log("Aviso: bateria baixa!");
+  } else {
+    console.log("Nivel da bateria: " + nivelBateria + "%");
+  }
+}
